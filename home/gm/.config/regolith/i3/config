@@ -1,0 +1,257 @@
+#============================= Launch settings ===============================#
+# Applications to be launched when i3 starts
+#exec_always --no-startup-id tablet_mode
+exec --no-startup-id compton -b
+exec --no-startup-id xset +fp /home/gm/.local/share/fonts
+exec --no-startup-id xset fp rehash
+exec --no-startup-id /home/gm/.config/polybar/launch.sh
+
+#=============================================================================#
+
+
+#================================= Appearance ================================#
+################################ COLORS #######################################
+
+# XRESOURCES
+set_from_resource $fg primary
+
+# CLASS                 BORDER  BACK    TEXT    INDICATOR
+client.focused          #121212     #121212     $fg     #121212
+client.focused_inactive #121212     #121212     $fg     #121212
+client.unfocused        $fg     #121212     $fg     #121212
+client.urgent           $fg     #121212     $fg     #121212
+client.placeholder      $fg     #121212     $fg     #121212
+
+
+# TOGGLE GAPS
+bindsym $mod+g exec compton; gaps inner all set 0; gaps outer all set 0;
+bindsym $mod+Ctrl+g exec compton; gaps inner all set 10; gaps outer all set 20;
+
+##### i3-gaps ##############
+for_window [class=".*"] border pixel 1 #*
+gaps inner 15
+gaps outer 15
+
+################# i3-radius #######################
+smart_borders on
+smart_borders no_gaps
+border_radius 2
+
+
+#-----------------------------------------------------------------------------#
+#=============================================================================#
+
+
+#================================= Controls ==================================#
+# Controls are mostly default i3 bindings
+# Mod4 = windows key, Mod1 = Alt
+set $mod Mod4
+
+#------------------------------- Applications --------------------------------#
+# Launch applications
+bindsym $mod+Return exec --no-startup-id urxvt
+bindsym $mod+Shift+w exec --no-startup-id firefox
+
+bindsym Print exec "flameshot gui"
+
+# Bring up launcher
+bindsym $mod+d exec ~/.config/regolith/i3/scripts/launcher.sh
+#-----------------------------------------------------------------------------#
+
+#---------------------------- Workspace navigation ---------------------------#
+# Controls to navigate inside a workspace
+
+# Change focus
+bindsym $mod+Left   focus left
+bindsym $mod+Down   focus down
+bindsym $mod+Up     focus up
+bindsym $mod+Right  focus right
+
+# Move focused container
+bindsym $mod+Shift+Left   move left
+bindsym $mod+Shift+Down   move down
+bindsym $mod+Shift+Up     move up
+bindsym $mod+Shift+Right  move right
+#-----------------------------------------------------------------------------#
+
+#--------------------------- Container manipulation --------------------------#
+# Controls to manipulate layout, location, and appearance for window containers
+
+# Split focused container horizontally or vertically
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# Toggle fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# Change container layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Toggle tiling/floating for a container
+bindsym $mod+space floating toggle
+# Change focus between tiling/floating containers
+bindsym $mod+Shift+space focus mode_toggle
+# Hold the mod key to drag and resize floating container
+floating_modifier $mod
+
+# Move the currently focused container to the scratchpad which contains
+# floating containers available on all workspaces
+bindsym $mod+shift+minus move scratchpad
+# Show/hide the scratchpad
+bindsym $mod+minus scratchpad show
+
+# Kill focused window
+bindsym $mod+c kill
+
+# Special mode to resize window (mouse drag also works)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        # Grow/shrink the window size using typical vim navigation or arrows
+        bindsym Left  resize shrink width  10 px or 10 ppt
+        bindsym Down  resize grow   height 10 px or 10 ppt
+        bindsym Up    resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow   width  10 px or 10 ppt
+
+        # Return to normal mode
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+#-----------------------------------------------------------------------------#
+
+#-------------------------------- Workspaces ---------------------------------#
+# Controls to navigate between workspaces
+
+## set workspaces
+set $ws1  "1: 1"
+set $ws2  "2: 2"
+set $ws3  "3: 3"
+set $ws4  "4: 4"
+set $ws5  "5: 5"
+set $ws6  "6: 6"
+set $ws7  "7: 7"
+set $ws8  "8: 8"
+set $ws9  "9: 9"
+
+# Switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# Relative workspace motion
+bindsym $mod+Ctrl+l workspace next
+bindsym $mod+Ctrl+h workspace prev
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# Move workspace to a different monitor
+bindsym $mod+Ctrl+Right move workspace to output right
+bindsym $mod+Ctrl+Left move workspace to output left
+
+# Move focus/window to open workspace on secondary monitor
+bindsym $mod+Tab focus output left
+
+#-----------------------------------------------------------------------------#
+
+###############################################################################
+# Session Management
+###############################################################################
+
+## Session // Exit App // <><Shift> q ##
+bindsym $mod+Shift+q exec $i3-wm.program.settings
+
+## Session // Terminate App // <><Alt> q ##
+bindsym $mod+$alt+q [con_id="__focused__"] exec --no-startup-id kill -9 $(xdotool getwindowfocus getwindowpid)
+
+## Session // Reload i3 Config // <><Shift> c ##
+bindsym $mod+Shift+c reload
+
+## Session // Refresh Session // <><Shift> r ##
+set_from_resource $i3-wm.program.refresh_ui i3-wm.program.refresh_ui /usr/bin/regolith-look refresh
+bindsym $mod+Shift+r exec --no-startup-id $i3-wm.program.refresh_ui
+
+## Session // Restart i3 // <><Ctrl> r ##
+bindsym $mod+alt+r restart
+
+## Session // Logout // <><Shift> e ##
+set_from_resource $i3-wm.program.logout i3-wm.program.logout /usr/bin/gnome-session-quit --logout
+bindsym $mod+Shift+e exec $i3-wm.program.logout
+
+## Session // Reboot // <><Shift> b ##
+set_from_resource $i3-wm.program.reboot i3-wm.program.reboot /usr/bin/gnome-session-quit --reboot
+bindsym $mod+Shift+b exec $i3-wm.program.reboot
+
+## Session // Power Down // <><Shift> p ##
+set_from_resource $i3-wm.program.shutdown i3-wm.program.shutdown /usr/bin/gnome-session-quit --power-off
+bindsym $mod+Shift+p exec $i3-wm.program.shutdown
+
+## Session // Lock Screen // <> Escape ##
+set_from_resource $i3-wm.program.lock i3-wm.program.lock dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
+bindsym $mod+Escape exec $i3-wm.program.lock
+
+## Session // Sleep // <><Shift> s ##
+set_from_resource $i3-wm.program.sleep i3-wm.program.sleep systemctl suspend
+bindsym $mod+Shift+s exec $i3-wm.program.sleep
+
+#=============================================================================#
+## Launch // File Browser // <><Shift> n ##
+set_from_resource $i3-wm.program.files i3-wm.program.files /usr/bin/nautilus --new-window
+bindsym $mod+Shift+n exec $i3-wm.program.files
+
+# bindsym $mod+e exec mpd_control.sh -j
+bindsym $mod+n exec --no-startup-id ncmpcpp2
+bindsym $mod+Shift+m exec --no-startup-id urxvt -hold -g 63x14 -e bash -c "ncmpcpp -c ~/.ncmpcpp/config-doble"
+
+# i3-snapshot for load/save current layout
+## Modify // Save Window Layout // <> , ##
+bindsym $mod+comma  exec /usr/bin/i3-snapshot -o > /tmp/i3-snapshot 
+## Modify // Load Window Layout // <> . ##
+bindsym $mod+period exec /usr/bin/i3-snapshot -c < /tmp/i3-snapshot
+
+#============================ Window properties ==============================#
+# Define special properties for certain classes of windows
+
+# Floating mode for dialog windows
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [title="Microsoft Teams Notification"] floating enable
+for_window [class="feh"] floating enable
+
+#=============================================================================#
+# Window rules
+
+for_window [window_role="browser"] move to workspace 1
+for_window [class=Firefox] move to workspace 1
+for_window [class=Code|jetbrains-webstorm|jetbrains-idea] move to workspace 2
+for_window [class=Microsoft\sTeams\s-\sPreview] move to workspace 4
+for_window [class="Spotify"] move to workspace 5
+for_window [class=TelegramDesktop] move to workspace 6
+for_window [class=Evince|okular|libreoffice*] move to workspace 9
+
+for_window [class="(?i)URxvt|polybar|xfd|mplayer|xfce4-terminal|Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol|pulseaudio-equalizer"] floating enable
+for_window [class=URxvt|xfce4-terminal|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
+for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus

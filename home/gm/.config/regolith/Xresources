@@ -1,0 +1,135 @@
+! -- Styles - Colors
+#include "/home/gm/.Xresources.d/color"
+
+! -- Styles - Fonts
+#include "/home/gm/.Xresources.d/typeface"
+
+! -- Styles - Theme
+#include "/home/gm/.Xresources.d/theme"
+
+! -- Applications
+! These files map values defined above into specific app settings.
+#include "/home/gm/.Xresources.d/st-term"
+#include "/home/gm/.Xresources.d/i3-wm"
+#include "/home/gm/.Xresources.d/i3xrocks"
+#include "/home/gm/.Xresources.d/rofi"
+#include "/home/gm/.Xresources.d/gnome"
+
+
+
+!! Colorscheme#
+
+! special
+*.foreground:   #d0b4d1
+*.background:   #292d3e
+*.cursorColor:  #d0b4d1
+
+! black
+*.color0  : #292d3e
+*.color8  : #424459
+
+! red
+*.color1  : #C59FBB
+*.color9  : #C59FBB
+
+! green
+*.color2  : #72669e
+*.color10 : #72669e
+
+! yellow
+*.color3  : #9073a5
+*.color11 : #9073a5
+
+! blue
+*.color4  : #c5a1bd
+*.color12 : #c5a1bd
+
+! magenta
+*.color5  : #a48bb4
+*.color13 : #a48bb4
+
+! cyan
+*.color6  : #b1a8cd
+*.color14 : #b1a8cd
+
+! white
+*.color7  : #d0b4d1
+*.color15 : #d0b4d1
+
+
+#define nord0 #121212
+#define nord3 #595959
+#define nord4 #efe4f0
+#define nord6 #ECEFF4
+#define nord11 #C59FBB
+#define nord14 #B38B70
+#define nord15 #DCB18F
+
+#define CLEAR argb:00000000
+
+
+#define BG_TRANS  #00000000
+#define BG_ARGB   argb:D92E3440
+#define BG        nord0
+#define BG_ALT    nord3
+#define TXT       nord4
+#define TXT_ALT   nord6
+#define PRIMARY   nord11
+#define SECONDARY nord14
+#define URGENT    nord15
+
+
+*background      : BG
+*background_trans: BG_TRANS
+*background_alt  : BG_ALT
+*foreground      : TXT
+*primary         : PRIMARY
+*secondary       : SECONDARY
+*urgent          : URGENT
+
+!! URxvt Appearance
+URxvt.font: xft:Inconsolata\-dz:style=Regular:size=9:antialias=true
+URxvt.boldFont: xft:Inconsolata\-dz:style=Bold:size=9:antialias=true
+URxvt.letterSpace: -1
+URxvt.lineSpace: 0
+URxvt.geometry: 72x24
+URxvt.internalBorder: 36
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+URxvt.depth: 24
+URxvt.iso14755: false
+
+!! Common Keybinds for Navigations
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+URxvt.keysym.Control-Up: \033[1;5A
+URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Right: \033[1;5C
+URxvt.keysym.Control-Left: \033[1;5D
+
+!! Copy Paste & Other Extensions
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.copyCommand: xclip -i -selection clipboard
+URxvt.pasteCommand: xclip -o -selection clipboard
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.urlLauncher: firefox
+URxvt.underlineURLs: true
+URxvt.urlButton: 1
+
+!! Xft Antialiasing
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
