@@ -1,5 +1,5 @@
 configuration {
-    font:                           "Ubuntu 9";
+    font:                           "Cantarell 9";
     show-icons:                     false;
 	icon-theme: 					"Flatery";
     display-drun: 					"";
