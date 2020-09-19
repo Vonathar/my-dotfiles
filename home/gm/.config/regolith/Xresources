@@ -1,86 +1,19 @@
-! -- Styles - Colors
-#include "/home/gm/.Xresources.d/color"
-
-! -- Styles - Fonts
-#include "/home/gm/.Xresources.d/typeface"
-
-! -- Styles - Theme
-#include "/home/gm/.Xresources.d/theme"
-
 ! -- Applications
 ! These files map values defined above into specific app settings.
-#include "/home/gm/.Xresources.d/st-term"
-#include "/home/gm/.Xresources.d/i3-wm"
-#include "/home/gm/.Xresources.d/i3xrocks"
-#include "/home/gm/.Xresources.d/rofi"
 #include "/home/gm/.Xresources.d/gnome"
+#include "/home/gm/.Xresources.d/colors"
 
+!! Colorscheme
 
-
-!! Colorscheme#
-
-! special
-*.foreground:   #d0b4d1
-*.background:   #292d3e
-*.cursorColor:  #d0b4d1
-
-! black
-*.color0  : #292d3e
-*.color8  : #424459
-
-! red
-*.color1  : #C59FBB
-*.color9  : #C59FBB
-
-! green
-*.color2  : #72669e
-*.color10 : #72669e
-
-! yellow
-*.color3  : #9073a5
-*.color11 : #9073a5
-
-! blue
-*.color4  : #c5a1bd
-*.color12 : #c5a1bd
-
-! magenta
-*.color5  : #a48bb4
-*.color13 : #a48bb4
-
-! cyan
-*.color6  : #b1a8cd
-*.color14 : #b1a8cd
-
-! white
-*.color7  : #d0b4d1
-*.color15 : #d0b4d1
-
-
-#define nord0 #121212
-#define nord3 #595959
-#define nord4 #efe4f0
-#define nord6 #ECEFF4
-#define nord11 #C59FBB
-#define nord14 #B38B70
-#define nord15 #DCB18F
-
-#define CLEAR argb:00000000
-
-
-#define BG_TRANS  #00000000
-#define BG_ARGB   argb:D92E3440
-#define BG        nord0
-#define BG_ALT    nord3
-#define TXT       nord4
-#define TXT_ALT   nord6
-#define PRIMARY   nord11
-#define SECONDARY nord14
-#define URGENT    nord15
-
+#define BG        black0
+#define BG_ALT    black1
+#define TXT       pink0
+#define TXT_ALT   purple0
+#define PRIMARY   purple0
+#define SECONDARY purple1
+#define URGENT    purple2
 
 *background      : BG
-*background_trans: BG_TRANS
 *background_alt  : BG_ALT
 *foreground      : TXT
 *primary         : PRIMARY
@@ -88,6 +21,24 @@
 *urgent          : URGENT
 
 !! URxvt Appearance
+
+URxvt.color0: black1
+URxvt.color1: purple1
+URxvt.color2: #18B218
+URxvt.color3: #B26818
+URxvt.color4: purple2
+URxvt.color5: #B218B2
+URxvt.color6: #18B2B2
+URxvt.color7: #B2B2B2
+URxvt.color8: black1
+URxvt.color9: #FF5454
+URxvt.color10: purple0
+URxvt.color11: #FFFF54
+URxvt.color12: pink1
+URxvt.color13: #FF54FF
+URxvt.color14: #54FFFF
+URxvt.color15: #FFFFFF
+
 URxvt.font: xft:Inconsolata\-dz:style=Regular:size=9:antialias=true
 URxvt.boldFont: xft:Inconsolata\-dz:style=Bold:size=9:antialias=true
 URxvt.letterSpace: -1
