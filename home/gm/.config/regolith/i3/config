@@ -254,5 +254,5 @@ for_window [class=TelegramDesktop] move to workspace 6
 for_window [class=Evince|okular|libreoffice*] move to workspace 9
 
 for_window [class="(?i)URxvt|polybar|xfd|mplayer|xfce4-terminal|Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol|pulseaudio-equalizer"] floating enable
-for_window [class=URxvt|xfce4-terminal|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
+for_window [class=URxvt|xfce4-terminal|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
 for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
