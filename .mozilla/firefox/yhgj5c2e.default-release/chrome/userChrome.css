@@ -1,7 +1,7 @@
  :root {
 
    /* Minimal Functional Fox variables*/
-  --mff-bg: #121212;
+  --mff-bg: #000000;
   --mff-icon-color: #e0fbfc;
   --mff-nav-toolbar-padding: 8px;
   --mff-sidebar-bg: var(--mff-bg);
@@ -52,8 +52,8 @@
 
 tab[selected="true"] {
 
-  color:#121212 !important;
-  --mff-tab-color: #121212;
+  color:#000000 !important;
+  --mff-tab-color: #000000;
  
  }
 

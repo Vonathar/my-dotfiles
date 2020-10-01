@@ -141,13 +141,12 @@ label-unfocused = %icon%   %index%
 label-occupied-padding = 1
 
 label-dimmed = %icon& %index%
-label-dimmed-foreground = #282A36
+label-dimmed-foreground = #bdbdbd
 label-dimmed-underline = #BD93F9
 label-dimmed-focused-background = #BD93F9
 
 label-urgent = %icon% %index%
-label-urgent-foreground = "#282A36"
-label-urgent-background = "#FF5555"
+label-urgent-foreground = "#bdbdbd"
 label-urgent-underline = "#FF5555"
 label-urgent-padding = 1
 

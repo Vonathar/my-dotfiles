@@ -27,8 +27,8 @@ configuration {
 /* -- Dark -- */
 /*
 * {
-    background:                     #12121290ff;
-    background-alt:                 #212121ff;
+    background:                     #00000090ff;
+    background-alt:                 #121212ff;
     background-ib:                  #151515FF;
     foreground:                     #EDEDEDFF;
     border:               			#EDEDED4d;
@@ -40,12 +40,12 @@ configuration {
 
 window {
     transparency:                   "real";
-    background-color:               #121212e6;
+    background-color:               #000000e6;
     text-color:                     @foreground;
     border:                  		0px;
     border-radius:                  0px;
     border-color:                  	@border;
-    height:                         25%;
+    height:                         15%;
     width:                          100%;
     location:                       north;
     anchor:                         north;
@@ -64,8 +64,8 @@ inputbar {
     border:                  		0px 0px 2px 0px;
     border-radius:                  2px;
     border-color:                  	@border;
-    margin:                         1px 83% 0px 5px;
-    padding:                        5px 10px 5px 10px;
+    margin:                         1px 87% 0px 5px;
+    padding:                        1px 10px 1px 10px;
     position:                       center;
 }
 
@@ -98,14 +98,14 @@ listview {
 }
 
 mainbox {
-    background-color:               #12121290;
+    background-color:               #00000090;
     children:                       [ inputbar, listview ];
     spacing:                       	10px;
     padding:                        20px 20px 20px 20px;
 }
 
 element {
-    background-color:               #212121;
+    background-color:               #121212;
     text-color:                     #fafafa;
     orientation:                    vertical;
     border-radius:                  0px;

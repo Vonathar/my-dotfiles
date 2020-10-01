@@ -16,11 +16,11 @@ exec --no-startup-id /home/gm/.config/polybar/launch.sh
 set_from_resource $fg primary
 
 # CLASS                 BORDER  BACK    TEXT    INDICATOR
-client.focused          #121212     #121212     $fg     #121212
-client.focused_inactive #121212     #121212     $fg     #121212
-client.unfocused        $fg     #121212     $fg     #121212
-client.urgent           $fg     #121212     $fg     #121212
-client.placeholder      $fg     #121212     $fg     #121212
+client.focused          #000000     #000000     $fg     #000000
+client.focused_inactive #000000     #000000     $fg     #000000
+client.unfocused        $fg     #000000     $fg     #000000
+client.urgent           $fg     #000000     $fg     #000000
+client.placeholder      $fg     #000000     $fg     #000000
 
 
 # TOGGLE GAPS
@@ -232,6 +232,7 @@ bindsym $mod+period exec /usr/bin/i3-snapshot -c < /tmp/i3-snapshot
 # Define special properties for certain classes of windows
 
 # Floating mode for dialog windows
+for_window [class=bottermarketing] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
