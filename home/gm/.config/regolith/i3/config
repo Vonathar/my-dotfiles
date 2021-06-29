@@ -5,6 +5,7 @@ exec --no-startup-id compton -b
 exec --no-startup-id xset +fp /home/gm/.local/share/fonts
 exec --no-startup-id xset fp rehash
 exec --no-startup-id /home/gm/.config/polybar/launch.sh
+exec --no-startup-id /home/gm/.config/regolith/i3/scripts/init.sh
 
 #=============================================================================#
 
@@ -12,25 +13,14 @@ exec --no-startup-id /home/gm/.config/polybar/launch.sh
 #================================= Appearance ================================#
 ################################ COLORS #######################################
 
-# XRESOURCES
-set_from_resource $fg primary
-
-# CLASS                 BORDER  BACK    TEXT    INDICATOR
-client.focused          #000000     #000000     $fg     #000000
-client.focused_inactive #000000     #000000     $fg     #000000
-client.unfocused        $fg     #000000     $fg     #000000
-client.urgent           $fg     #000000     $fg     #000000
-client.placeholder      $fg     #000000     $fg     #000000
-
-
 # TOGGLE GAPS
 bindsym $mod+g exec compton; gaps inner all set 0; gaps outer all set 0;
 bindsym $mod+Ctrl+g exec compton; gaps inner all set 10; gaps outer all set 20;
 
 ##### i3-gaps ##############
-for_window [class=".*"] border pixel 1 #*
-gaps inner 15
-gaps outer 15
+for_window [class=".*"] border pixel 0
+gaps inner 5
+gaps outer 0
 
 ################# i3-radius #######################
 smart_borders on
@@ -232,26 +222,27 @@ bindsym $mod+period exec /usr/bin/i3-snapshot -c < /tmp/i3-snapshot
 # Define special properties for certain classes of windows
 
 # Floating mode for dialog windows
-for_window [class=bottermarketing] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
-for_window [title="Microsoft Teams Notification"] floating enable
 for_window [class="feh"] floating enable
+
+
+for_window [class="jetbrains-clion"] focus
+for_window [class="Fantasia"] floating enable
 
 #=============================================================================#
 # Window rules
 
 for_window [window_role="browser"] move to workspace 1
 for_window [class=Firefox] move to workspace 1
-for_window [class=Code|jetbrains-webstorm|jetbrains-idea] move to workspace 2
-for_window [class=Microsoft\sTeams\s-\sPreview] move to workspace 4
-for_window [class="Spotify"] move to workspace 5
-for_window [class=TelegramDesktop] move to workspace 6
-for_window [class=Evince|okular|libreoffice*] move to workspace 9
+for_window [class=Code|jetbrains-webstorm|jetbrains-idea|jetbrains-clion] move to workspace 2
+for_window [class="Fantasia"] move to workspace 3
+for_window [class="Spotify"] move to workspace 4
+
 
 for_window [class="(?i)URxvt|polybar|xfd|mplayer|xfce4-terminal|Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol|pulseaudio-equalizer"] floating enable
 for_window [class=URxvt|xfce4-terminal|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
